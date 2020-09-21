@@ -1,12 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useStateValue } from "../StateProvider";
 import "./Header.css";
 
 function Header() {
+  const [{ basket }, dispatch] = useStateValue();
+
   return (
     <div className="header">
       <div className="header__logo">
-        <i className="fas fa-store"></i>
-        <h2>E-Commerce</h2>
+        <Link to="/" className="header__link">
+          <i className="fas fa-store"></i>
+          <h2>E-Commerce</h2>
+        </Link>
       </div>
       <div className="header__search">
         <input type="text"></input>
@@ -23,9 +29,11 @@ function Header() {
           <h3>& Orders</h3>
         </div>
         <div className="header__option">
-          <i class="fas fa-shopping-cart">
-            <span>0</span>
-          </i>
+          <Link to="/checkout" className="header__link">
+            <i class="fas fa-shopping-cart">
+              <span>{basket?.length}</span>
+            </i>
+          </Link>
         </div>
       </div>
     </div>
