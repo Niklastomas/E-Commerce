@@ -9,10 +9,10 @@ function Subtotal() {
 
   const calculateTotalPrice = () => {
     let totalPrice = 0;
-    basket.map((item) => {
-      totalPrice += Number(item.price);
-    });
-    return totalPrice;
+
+    basket.map((item) => (totalPrice += Number(item.price)));
+
+    return Number(totalPrice.toFixed(2));
   };
 
   const totalPrice = calculateTotalPrice();

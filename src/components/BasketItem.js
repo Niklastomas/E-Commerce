@@ -1,23 +1,38 @@
 import React from "react";
+import { useStateValue } from "../StateProvider";
 import "./BasketItem.css";
 
-function BasketItem() {
+function BasketItem({ id, name, price, image, rating }) {
+  const [{ basket }, dispatch] = useStateValue();
+
+  const removeFromBasket = () => {
+    dispatch({
+      type: "REMOVE_FROM_BASKET",
+      item: {
+        id,
+      },
+    });
+  };
+
+  const getRating = (rating) => {
+    let ratings = [];
+    for (let i = 0; i < rating; i++) {
+      ratings.push(<p>⭐</p>);
+    }
+    return ratings;
+  };
+
   return (
     <div className="basketItem">
-      <img
-        src="https://www.netonnet.se/GetFile/ProductImagePrimary/datorkomponenter/grafikkort/nvidia/gigabyte-geforce-rtx-3080-gaming-oc-10g(1014380)_396632_1_Normal_Large.jpg"
-        alt=""
-      />
+      <img src={image} alt="" />
       <div className="basketItem__info">
-        <p>Gigabyte Gefore RTX 3080</p>
+        <p>{name}</p>
         <p className="basketItem__price">
           <small>$</small>
-          <strong>599.99</strong>
+          <strong>{price}</strong>
         </p>
-        <div className="product__rating">
-          <p>⭐</p>
-        </div>
-        <button>Remove from basket</button>
+        <div className="product__rating">{getRating(rating)}</div>
+        <button onClick={removeFromBasket}>Remove from basket</button>
       </div>
     </div>
   );
