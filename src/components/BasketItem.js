@@ -8,19 +8,17 @@ function BasketItem({ id, name, price, image, rating }) {
   const removeFromBasket = () => {
     dispatch({
       type: "REMOVE_FROM_BASKET",
-      item: {
-        id,
-      },
+      id: id,
     });
   };
 
-  const getRating = (rating) => {
-    let ratings = [];
-    for (let i = 0; i < rating; i++) {
-      ratings.push(<p>⭐</p>);
-    }
-    return ratings;
-  };
+  // const getRating = (rating) => {
+  //   let ratings = [];
+  //   for (let i = 0; i < rating; i++) {
+  //     ratings.push(<p>⭐</p>);
+  //   }
+  //   return ratings;
+  // };
 
   return (
     <div className="basketItem">
@@ -31,7 +29,13 @@ function BasketItem({ id, name, price, image, rating }) {
           <small>$</small>
           <strong>{price}</strong>
         </p>
-        <div className="product__rating">{getRating(rating)}</div>
+        <div className="basketItem__rating">
+          {Array(rating)
+            .fill()
+            .map(() => (
+              <p>⭐</p>
+            ))}
+        </div>
         <button onClick={removeFromBasket}>Remove from basket</button>
       </div>
     </div>

@@ -10,6 +10,15 @@
   margin-left: 20px;
 }
 
+.basketItem__rating {
+  display: flex;
+}
+
+.basketItem p {
+  font-size: 17px;
+  font-weight: 600;
+}
+
 .basketItem img {
   width: auto;
   max-height: 200px;
