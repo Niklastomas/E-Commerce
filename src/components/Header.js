@@ -20,10 +20,13 @@ function Header() {
         <i class="fas fa-search"></i>
       </div>
       <div className="header__nav">
-        <div className="header__option">
-          <span>Hello</span>
-          <h3>Sign In</h3>
-        </div>
+        <Link to="/login">
+          <div className="header__option">
+            <span>Hello</span>
+
+            <h3>Sign In</h3>
+          </div>
+        </Link>
         <div className="header__option">
           <span>returns</span>
           <h3>& Orders</h3>
