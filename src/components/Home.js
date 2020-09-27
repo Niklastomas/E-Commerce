@@ -13,6 +13,7 @@ function Home() {
         ></img>
         <div className="home__row">
           <Product
+            key="1"
             id="1"
             name="Microsoft Xbox Series X"
             rating={5}
@@ -20,6 +21,7 @@ function Home() {
             image="https://inetimg2.se/img/688x386/6335950_4.jpg"
           />
           <Product
+            key="2"
             id="2"
             name="Gigabyte RTX 3080"
             rating={4}
@@ -29,6 +31,7 @@ function Home() {
         </div>
         <div className="home__row">
           <Product
+            key="3"
             id="3"
             name="Sony Playstation 5"
             rating={5}
@@ -36,6 +39,7 @@ function Home() {
             image="https://inetimg3.se/img/688x386/6609649_5.jpg"
           />
           <Product
+            key="4"
             id="4"
             name="AMD Ryzen 9 3900X 3.8 GHz 70MB"
             rating={5}
@@ -43,6 +47,7 @@ function Home() {
             image="https://inetimg3.se/img/688x386/5301789_0.jpg"
           />
           <Product
+            key="5"
             id="4"
             name="Corsair 16GB (2x8GB) DDR4 3200Mhz CL16 Vengeance LPX Black"
             rating={4}
@@ -52,6 +57,7 @@ function Home() {
         </div>
         <div className="home__row">
           <Product
+            key="6"
             id="5"
             name="ASUS 32 ProArt PA32UCX-K IPS 4K"
             rating={5}

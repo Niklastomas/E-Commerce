@@ -1,5 +1,6 @@
 export const initialState = {
   basket: [],
+  user: null,
 };
 
 const reducer = (state, action) => {
@@ -9,6 +10,7 @@ const reducer = (state, action) => {
         ...state,
         basket: [...state.basket, action.item],
       };
+
     case "REMOVE_FROM_BASKET":
       const index = state.basket.findIndex((item) => item.id === action.id);
       let newBasket = [...state.basket];
@@ -25,6 +27,19 @@ const reducer = (state, action) => {
         ...state,
         basket: newBasket,
       };
+
+    case "EMPTY_BASKET":
+      return {
+        ...state,
+        basket: [],
+      };
+
+    case "SET_USER":
+      return {
+        ...state,
+        user: action.user,
+      };
+
     default:
       return state;
   }

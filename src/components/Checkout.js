@@ -11,8 +11,9 @@ function Checkout() {
       <div className="checkout__left">
         <h2 className="checkout__title">Shopping Basket</h2>
         {basket.length > 0 ? (
-          basket.map((item) => (
+          basket.map((item, index) => (
             <BasketItem
+              key={index}
               id={item.id}
               name={item.name}
               price={item.price}
