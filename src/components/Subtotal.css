@@ -17,7 +17,7 @@
   align-items: center;
 }
 
-.subtotal button {
+.button__active {
   margin-top: 30px;
   width: 200px;
   height: 25px;
@@ -29,4 +29,14 @@
 
 .subtotal button:hover {
   cursor: pointer;
+}
+
+.button__disable {
+  margin-top: 30px;
+  width: 200px;
+  height: 25px;
+  background-color: gray;
+  border: 1px solid;
+  border-color: #7e8a97;
+  color: white;
 }

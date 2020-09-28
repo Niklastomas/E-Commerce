@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:5001/e-commerce-6889d/us-central1/api",
+  baseURL: "https://us-central1-e-commerce-6889d.cloudfunctions.net/api",
 });
 
 export default instance;

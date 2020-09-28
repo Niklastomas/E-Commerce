@@ -6,6 +6,7 @@ import { useStateValue } from "../StateProvider";
 import BasketItem from "./BasketItem";
 import "./Payment.css";
 import axios from "../axios";
+import { db } from "../firebase";
 
 function Payment() {
   const [{ user, basket }, dispatch] = useStateValue();
@@ -44,6 +45,16 @@ function Payment() {
         },
       })
       .then(({ paymentIntent }) => {
+        db.collection("users")
+          .doc(user?.uid)
+          .collection("orders")
+          .doc(paymentIntent.id)
+          .set({
+            basket: basket,
+            amount: paymentIntent.amount,
+            created: paymentIntent.created,
+          });
+
         setSucceded(true);
         setError(null);
         setProcessing(false);
@@ -108,12 +119,12 @@ function Payment() {
           </div>
           <div className="payment__details">
             <form onSubmit={handleSubmit}>
-              <CardElement onChange={onchange} />
+              <CardElement onChange={handleChange} />
               <div className="payment__priceContainer">
                 <CurrencyFormat
                   renderText={(value) => (
                     <>
-                      <h3>Order Total: {value}</h3>
+                      <h4>Order Total: {value}</h4>
                     </>
                   )}
                   decimalScale={2}

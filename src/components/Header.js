@@ -34,9 +34,12 @@ function Header() {
             <h3>{user ? "Sign Out" : "Sign In"}</h3>
           </div>
         </Link>
+
         <div className="header__option">
-          <span>returns</span>
-          <h3>& Orders</h3>
+          <Link to="/orders">
+            <span>returns</span>
+            <h3>& Orders</h3>
+          </Link>
         </div>
         <div className="header__option">
           <Link to="/checkout" className="header__link">
